@@ -1,0 +1,61 @@
+# Usuarios #
+###
+GET http://localhost:3003/ping
+
+###
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+  "apelido":"larina",
+  "email":"larina@gmail.com",
+  "password":"casdfeisar"
+}
+
+###
+POST http://localhost:3003/users/Login
+Content-Type: application/json 
+
+{
+  "email": "carina@gmail.com",
+  "password":"cafeisar"
+}
+
+# Postagens #
+
+###
+POST http://localhost:3003/postagens
+Content-Type: application/json
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmNjhmODJhLTJlYTktNDk5ZS1iZDllLWQ4YTRkODRiM2UyOSIsImFwZWxpZG8iOiJsYXJpbmEiLCJyb2xlIjoiTk9STUFMIiwiaWF0IjoxNjg4NjgwODEyLCJleHAiOjE2ODkyODU2MTJ9.mntBpLbn9rTLypfAA281xkvnyXUHlERGXl8O-CuePC8
+
+{
+  "apelido":"manchete"
+}
+
+###
+GET http://localhost:3003/postagens
+Content-Type: application/json
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmNjhmODJhLTJlYTktNDk5ZS1iZDllLWQ4YTRkODRiM2UyOSIsImFwZWxpZG8iOiJsYXJpbmEiLCJyb2xlIjoiTk9STUFMIiwiaWF0IjoxNjg4NjgwODEyLCJleHAiOjE2ODkyODU2MTJ9.mntBpLbn9rTLypfAA281xkvnyXUHlERGXl8O-CuePC8
+
+###
+PUT http://localhost:3003/postagens/f1670ff0-6b04-4d26-93ee-97026e65ed14
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkOTNiMDFiLWM1MTEtNDczNy04ZWEzLTJjNzUxNDNlZDI1MCIsImFwZWxpZG8iOiJDYXJpbmEiLCJyb2xlIjoiTk9STUFMIiwiaWF0IjoxNjg4NjgzMjQ5LCJleHAiOjE2ODkyODgwNDl9.Ld2lEBn-oGLbFq-E_8wWy_BztIE6HJEgXoPhlH003NI
+
+{
+  "conteudoDaPostagem":"Vamao que vamo rapaziada da Labenu"
+}
+
+###
+PUT http://localhost:3003/postagens/f1670ff0-6b04-4d26-93ee-97026e65ed14/like
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkOTNiMDFiLWM1MTEtNDczNy04ZWEzLTJjNzUxNDNlZDI1MCIsImFwZWxpZG8iOiJDYXJpbmEiLCJyb2xlIjoiTk9STUFMIiwiaWF0IjoxNjg4NjgzMjQ5LCJleHAiOjE2ODkyODgwNDl9.Ld2lEBn-oGLbFq-E_8wWy_BztIE6HJEgXoPhlH003NI
+
+{
+  "like":false
+}
+
+###
+DELETE http://localhost:3003/postagens/f1670ff0-6b04-4d26-93ee-97026e65ed14
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkOTNiMDFiLWM1MTEtNDczNy04ZWEzLTJjNzUxNDNlZDI1MCIsImFwZWxpZG8iOiJDYXJpbmEiLCJyb2xlIjoiTk9STUFMIiwiaWF0IjoxNjg4NjgzMjQ5LCJleHAiOjE2ODkyODgwNDl9.Ld2lEBn-oGLbFq-E_8wWy_BztIE6HJEgXoPhlH003NI
