@@ -17,8 +17,8 @@ POST http://localhost:3003/users/Login
 Content-Type: application/json 
 
 {
-  "email": "carina@gmail.com",
-  "password":"cafeisar"
+  "email": "larina@gmail.com",
+  "password":"casdfeisar"
 }
 
 # Postagens #
@@ -26,36 +26,36 @@ Content-Type: application/json
 ###
 POST http://localhost:3003/postagens
 Content-Type: application/json
-Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmNjhmODJhLTJlYTktNDk5ZS1iZDllLWQ4YTRkODRiM2UyOSIsImFwZWxpZG8iOiJsYXJpbmEiLCJyb2xlIjoiTk9STUFMIiwiaWF0IjoxNjg4NjgwODEyLCJleHAiOjE2ODkyODU2MTJ9.mntBpLbn9rTLypfAA281xkvnyXUHlERGXl8O-CuePC8
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJkMTZhMzRmLTY2MWItNGE5My05N2E0LTdiZTc0MmUzYjlkNyIsImFwZWxpZG8iOiJsYXJpbmEiLCJyb2xlIjoiTk9STUFMIiwiaWF0IjoxNjkwNTAwOTY4LCJleHAiOjE2OTExMDU3Njh9.eWgXxPWngR0yzZ3sXPlbMbVsHXWt9nTvtzRaGETJWbw
 
 {
-  "apelido":"manchete"
+  "apelido":"manchetes"
 }
 
 ###
 GET http://localhost:3003/postagens
 Content-Type: application/json
-Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmNjhmODJhLTJlYTktNDk5ZS1iZDllLWQ4YTRkODRiM2UyOSIsImFwZWxpZG8iOiJsYXJpbmEiLCJyb2xlIjoiTk9STUFMIiwiaWF0IjoxNjg4NjgwODEyLCJleHAiOjE2ODkyODU2MTJ9.mntBpLbn9rTLypfAA281xkvnyXUHlERGXl8O-CuePC8
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJkMTZhMzRmLTY2MWItNGE5My05N2E0LTdiZTc0MmUzYjlkNyIsImFwZWxpZG8iOiJsYXJpbmEiLCJyb2xlIjoiTk9STUFMIiwiaWF0IjoxNjkwNTAwOTY4LCJleHAiOjE2OTExMDU3Njh9.eWgXxPWngR0yzZ3sXPlbMbVsHXWt9nTvtzRaGETJWbw
 
 ###
-PUT http://localhost:3003/postagens/f1670ff0-6b04-4d26-93ee-97026e65ed14
+PUT http://localhost:3003/postagens/cad4cead-f41e-43b2-bf17-00673582884c
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkOTNiMDFiLWM1MTEtNDczNy04ZWEzLTJjNzUxNDNlZDI1MCIsImFwZWxpZG8iOiJDYXJpbmEiLCJyb2xlIjoiTk9STUFMIiwiaWF0IjoxNjg4NjgzMjQ5LCJleHAiOjE2ODkyODgwNDl9.Ld2lEBn-oGLbFq-E_8wWy_BztIE6HJEgXoPhlH003NI
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJkMTZhMzRmLTY2MWItNGE5My05N2E0LTdiZTc0MmUzYjlkNyIsImFwZWxpZG8iOiJsYXJpbmEiLCJyb2xlIjoiTk9STUFMIiwiaWF0IjoxNjkwNTAwOTY4LCJleHAiOjE2OTExMDU3Njh9.eWgXxPWngR0yzZ3sXPlbMbVsHXWt9nTvtzRaGETJWbw
 
 {
-  "conteudoDaPostagem":"Vamao que vamo rapaziada da Labenu"
+  "conteudo":"Vamao que vamo rapaziada da Labenu"
 }
 
 ###
-PUT http://localhost:3003/postagens/f1670ff0-6b04-4d26-93ee-97026e65ed14/like
+PUT http://localhost:3003/postagens/8e39c3bd-d5c9-4945-8014-5a4e1c958589/like
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkOTNiMDFiLWM1MTEtNDczNy04ZWEzLTJjNzUxNDNlZDI1MCIsImFwZWxpZG8iOiJDYXJpbmEiLCJyb2xlIjoiTk9STUFMIiwiaWF0IjoxNjg4NjgzMjQ5LCJleHAiOjE2ODkyODgwNDl9.Ld2lEBn-oGLbFq-E_8wWy_BztIE6HJEgXoPhlH003NI
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJkMTZhMzRmLTY2MWItNGE5My05N2E0LTdiZTc0MmUzYjlkNyIsImFwZWxpZG8iOiJsYXJpbmEiLCJyb2xlIjoiTk9STUFMIiwiaWF0IjoxNjkwNTAwOTY4LCJleHAiOjE2OTExMDU3Njh9.eWgXxPWngR0yzZ3sXPlbMbVsHXWt9nTvtzRaGETJWbw
 
 {
   "like":false
 }
 
 ###
-DELETE http://localhost:3003/postagens/f1670ff0-6b04-4d26-93ee-97026e65ed14
+DELETE http://localhost:3003/postagens/8e39c3bd-d5c9-4945-8014-5a4e1c958589
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkOTNiMDFiLWM1MTEtNDczNy04ZWEzLTJjNzUxNDNlZDI1MCIsImFwZWxpZG8iOiJDYXJpbmEiLCJyb2xlIjoiTk9STUFMIiwiaWF0IjoxNjg4NjgzMjQ5LCJleHAiOjE2ODkyODgwNDl9.Ld2lEBn-oGLbFq-E_8wWy_BztIE6HJEgXoPhlH003NI
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJkMTZhMzRmLTY2MWItNGE5My05N2E0LTdiZTc0MmUzYjlkNyIsImFwZWxpZG8iOiJsYXJpbmEiLCJyb2xlIjoiTk9STUFMIiwiaWF0IjoxNjkwNTAwOTY4LCJleHAiOjE2OTExMDU3Njh9.eWgXxPWngR0yzZ3sXPlbMbVsHXWt9nTvtzRaGETJWbw

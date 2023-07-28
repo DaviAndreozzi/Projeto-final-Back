@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { userRouter } from "./router/userRouter";
 import { postagemRouter } from "./router/postagemRouter";
+import { comentariosRouter } from "./router/comentariosRouter";
 
 dotenv.config()
 
@@ -23,6 +24,6 @@ app.use("/users",userRouter)
 
 app.use("/postagens",postagemRouter)
 
-// app.use("/comentarios",comentariosRouter)
+app.use("/comentarios",comentariosRouter)
 
 
