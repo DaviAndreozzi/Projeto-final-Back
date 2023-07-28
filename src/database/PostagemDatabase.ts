@@ -1,4 +1,4 @@
-import { LikeDislikeDB, PostagemDB, PostagemDBCreatorconteudoDaPostagem, Postagem_Like } from "../models/Postagem";
+import { LikeDislikeDB, PostagemDB, PostagemDBCreatorConteudo, Postagem_Like } from "../models/Postagem";
 import { BaseDatabase } from "./BaseDatabase";
 import { UserDatabase } from "./UserDatabase";
 
@@ -11,12 +11,12 @@ export class PostagemDatabase extends BaseDatabase {
       .insert(postagemDB)
   }
 
-  public getCreatorConteudoDaPostagem = async (): Promise<PostagemDBCreatorconteudoDaPostagem[]> => {
+  public getCreatorConteudoDaPostagem = async (): Promise<PostagemDBCreatorConteudo[]> => {
     const result = await BaseDatabase.connection(PostagemDatabase.TABLE_POSTAGENS)
       .select(
         `${PostagemDatabase.TABLE_POSTAGENS}.id`,
         `${PostagemDatabase.TABLE_POSTAGENS}.creator_id`,
-        `${PostagemDatabase.TABLE_POSTAGENS}.conteudoDaPostagem`,
+        `${PostagemDatabase.TABLE_POSTAGENS}.conteudo`,
         `${PostagemDatabase.TABLE_POSTAGENS}.likes`,
         `${PostagemDatabase.TABLE_POSTAGENS}.dislikes`,
         `${PostagemDatabase.TABLE_POSTAGENS}.created_at`,
@@ -24,7 +24,7 @@ export class PostagemDatabase extends BaseDatabase {
         `${UserDatabase.TABLE_USERS}.apelido`
       )
       .join(`${UserDatabase.TABLE_USERS}`, `${PostagemDatabase.TABLE_POSTAGENS}.creator_id`, "=", `${UserDatabase.TABLE_USERS}.id`)
-    return result as PostagemDBCreatorconteudoDaPostagem[]
+    return result as PostagemDBCreatorConteudo[]
   }
 
   public findPostagemById = async (id: string): Promise<PostagemDB | undefined> => {
@@ -40,12 +40,12 @@ export class PostagemDatabase extends BaseDatabase {
       .where({ id: PostagensDB.id })
   }
 
-  public findPostagemCreatorDBById = async (id: string): Promise<PostagemDBCreatorconteudoDaPostagem | undefined> => {
+  public findPostagemCreatorDBById = async (id: string): Promise<PostagemDBCreatorConteudo | undefined> => {
     const [result] = await BaseDatabase.connection(PostagemDatabase.TABLE_POSTAGENS)
       .select(
         `${PostagemDatabase.TABLE_POSTAGENS}.id`,
         `${PostagemDatabase.TABLE_POSTAGENS}.creator_id`,
-        `${PostagemDatabase.TABLE_POSTAGENS}.conteudoDaPostagem`,
+        `${PostagemDatabase.TABLE_POSTAGENS}.conteudo`,
         `${PostagemDatabase.TABLE_POSTAGENS}.likes`,
         `${PostagemDatabase.TABLE_POSTAGENS}.dislikes`,
         `${PostagemDatabase.TABLE_POSTAGENS}.created_at`,
@@ -54,7 +54,7 @@ export class PostagemDatabase extends BaseDatabase {
       )
       .join(`${UserDatabase.TABLE_USERS}`, `${PostagemDatabase.TABLE_POSTAGENS}.creator_id`, "=", `${UserDatabase.TABLE_USERS}.id`)
       .where({ [`${PostagemDatabase.TABLE_POSTAGENS}.id`]: id })
-    return result as PostagemDBCreatorconteudoDaPostagem | undefined
+    return result as PostagemDBCreatorConteudo | undefined
   }
 
   public findLikeDislike = async (likeDislikeDB: LikeDislikeDB): Promise<Postagem_Like | undefined> => {
@@ -62,7 +62,7 @@ export class PostagemDatabase extends BaseDatabase {
       .select()
       .where({
         user_id: likeDislikeDB.user_id,
-        postagens_id: likeDislikeDB.postagens_id
+        post_id: likeDislikeDB.post_id
       })
     if (result === undefined) {
       return undefined
@@ -78,7 +78,7 @@ export class PostagemDatabase extends BaseDatabase {
       .delete()
       .where({
         user_id: likeDislikeDB.user_id,
-        postagens_id: likeDislikeDB.postagens_id
+        post_id: likeDislikeDB.post_id
       })
   }
 
@@ -87,7 +87,7 @@ export class PostagemDatabase extends BaseDatabase {
       .update(likeDislikeDB)
       .where({
         user_id: likeDislikeDB.user_id,
-        postagens_id: likeDislikeDB.postagens_id
+        post_id: likeDislikeDB.post_id
       })
   }
 
@@ -96,14 +96,9 @@ export class PostagemDatabase extends BaseDatabase {
       .insert(likeDislikeDB)
   }
 
-  public deletePlaylistById = async (id: string): Promise<void> => {
+  public deletePostagemById = async (id: string): Promise<void> => {
     await BaseDatabase.connection(PostagemDatabase.TABLE_POSTAGENS)
       .delete()
       .where({ id })
   }
-
-
-
-
-
 }

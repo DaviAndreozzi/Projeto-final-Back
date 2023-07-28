@@ -61,7 +61,7 @@ export class PostagemController {
     try {
       const input = EditPostagemSchema.parse({
         token: req.headers.authorization,
-        conteudoDaPostagem: req.body.conteudoDaPostagem,
+        conteudo: req.body.conteudo,
         idToEdit: req.params.id
       })
 

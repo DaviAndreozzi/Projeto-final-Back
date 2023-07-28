@@ -1,5 +1,4 @@
 import { PostagemDatabase } from "../database/PostagemDatabase";
-import { UserDatabase } from "../database/UserDatabase";
 import { CreatePostagemInputDTO, CreatePostagemOutputDTO } from "../dtos/postagens/createPostagem.dto";
 import { DeletePostagemInputDTO, DeletePostagemOutputDTO } from "../dtos/postagens/deletePostagem.dto";
 import { EditPostagemInputDTO, EditPostagemOutputDTO } from "../dtos/postagens/editpostagem.dto";
@@ -60,16 +59,16 @@ export class PostagemBusiness {
 
     const PostagemCreatorConteudoPostagem = await this.postagemDatabase.getCreatorConteudoDaPostagem()
 
-    const postagem = PostagemCreatorConteudoPostagem.map((ConteudoDaPostagem) => {
+    const postagem = PostagemCreatorConteudoPostagem.map((conteudo) => {
       const postagem = new Postagem(
-        ConteudoDaPostagem.id,
-        ConteudoDaPostagem.conteudoDaPostagem,
-        ConteudoDaPostagem.likes,
-        ConteudoDaPostagem.dislikes,
-        ConteudoDaPostagem.created_at,
-        ConteudoDaPostagem.updated_at,
-        ConteudoDaPostagem.creator_id,
-        ConteudoDaPostagem.creator_conteudoDaPostagem
+        conteudo.id,
+        conteudo.conteudo,
+        conteudo.likes,
+        conteudo.dislikes,
+        conteudo.created_at,
+        conteudo.updated_at,
+        conteudo.creator_id,
+        conteudo.creator_conteudo
       )
       return postagem.toBusinessModel()
     })
@@ -81,7 +80,7 @@ export class PostagemBusiness {
   }
 
   public editpostagem = async (input: EditPostagemInputDTO): Promise<EditPostagemOutputDTO> => {
-    const { conteudoDaPostagem, token, idToEdit } = input
+    const { conteudo, token, idToEdit } = input
 
     const payload = this.tokenManager.getPayload(token)
 
@@ -101,7 +100,7 @@ export class PostagemBusiness {
 
     const postegem = new Postagem(
       PostagemDB.id,
-      PostagemDB.conteudoDaPostagem,
+      PostagemDB.conteudo,
       PostagemDB.likes,
       PostagemDB.dislikes,
       PostagemDB.created_at,
@@ -110,7 +109,7 @@ export class PostagemBusiness {
       payload.apelido
     )
 
-    postegem.setConteudoDaPostagem(conteudoDaPostagem)
+    postegem.setconteudo(conteudo)
 
     const PostagensDB = postegem.toDBModel()
 
@@ -139,20 +138,20 @@ export class PostagemBusiness {
 
     const postagem = new Postagem(
       PostagemDBCreator.id,
-      PostagemDBCreator.conteudoDaPostagem,
+      PostagemDBCreator.conteudo,
       PostagemDBCreator.likes,
       PostagemDBCreator.dislikes,
       PostagemDBCreator.created_at,
       PostagemDBCreator.updated_at,
       PostagemDBCreator.creator_id,
-      PostagemDBCreator.creator_conteudoDaPostagem
+      PostagemDBCreator.creator_conteudo
     )
 
     const likeSQlite = like ? 1 : 0
 
     const likeDislikeDB: LikeDislikeDB = {
       user_id: payload.id,
-      postagens_id: postagemId,
+      post_id: postagemId,
       like: likeSQlite
     }
 
@@ -197,19 +196,19 @@ export class PostagemBusiness {
       throw new UnauthorizedError()
     }
 
-    const playlistDB = await this.postagemDatabase.findPostagemById(idToDelete)
+    const postagemDB = await this.postagemDatabase.findPostagemById(idToDelete)
 
-    if (!playlistDB) {
-      throw new NotFoundError("Playlist com essa id não existe ")
+    if (!postagemDB) {
+      throw new NotFoundError("Postagem com essa id não existe ")
     }
 
     if (payload.role !== USER_ROLES.ADMIN) {
-      if (payload.id !== playlistDB.creator_id) {
-        throw new ForbiddenError("somente quem criou a playlist pode editá-la")
+      if (payload.id !== postagemDB.creator_id) {
+        throw new ForbiddenError("somente quem criou a Postagem pode editá-la")
       }
     }
 
-    await this.postagemDatabase.deletePlaylistById(idToDelete)
+    await this.postagemDatabase.deletePostagemById(idToDelete)
 
 
     const output: DeletePostagemOutputDTO = undefined

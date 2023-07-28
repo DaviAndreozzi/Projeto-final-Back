@@ -1,41 +1,41 @@
 export interface PostagemDB {
   id: string,
   creator_id: string,
-  conteudoDaPostagem: string,
+  conteudo: string,
   likes: number,
   dislikes: number,
   created_at: string,
   updated_at: string
 }
 
-export interface PostagemDBCreatorconteudoDaPostagem {
+export interface PostagemDBCreatorConteudo {
   id: string,
   creator_id: string,
-  conteudoDaPostagem: string,
+  conteudo: string,
   likes: number,
   dislikes: number,
   created_at: string,
   updated_at: string,
-  creator_conteudoDaPostagem: string,
+  creator_conteudo: string,
 }
 
 export interface PostagemModel {
   id: string,
-  conteudoDaPostagem: string,
+  conteudo: string,
   likes: number,
   dislikes: number,
   created_at: string,
   updated_at: string,
   creator: {
     id: string,
-    conteudoDaPostagem: string
+    conteudo: string
   }
 }
 
 
 export interface LikeDislikeDB {
   user_id: string,
-  postagens_id: string,
+  post_id: string,
   like: number
 }
 
@@ -47,13 +47,13 @@ export enum Postagem_Like {
 export class Postagem {
   constructor(
     private id: string,
-    private conteudoDaPostagem: string,
+    private conteudo: string,
     private likes: number,
     private dislikes: number,
     private createdAt: string,
     private updatedAt: string,
     private creatorId: string,
-    private creatorconteudoDaPostagem: string
+    private creatorconteudo: string
   ) { }
 
   public getId(): string {
@@ -61,7 +61,7 @@ export class Postagem {
   }
 
   public getonteudoDaPostagem(): string {
-    return this.conteudoDaPostagem
+    return this.conteudo
   }
 
   public getLikes(): number {
@@ -84,16 +84,16 @@ export class Postagem {
     return this.creatorId
   }
 
-  public getCreatorConteudoDaPostagem(): string {
-    return this.creatorconteudoDaPostagem
+  public getCreatorconteudo(): string {
+    return this.creatorconteudo
   }
 
   public setId(value: string): void {
     this.id = value
   }
 
-  public setConteudoDaPostagem(value: string): void {
-    this.conteudoDaPostagem = value
+  public setconteudo(value: string): void {
+    this.conteudo = value
   }
 
   public setLikes(value: number): void {
@@ -132,15 +132,15 @@ export class Postagem {
     this.creatorId = value
   }
 
-  public setCreatorConteudoDaPostagem(value: string): void {
-    this.creatorconteudoDaPostagem = value
+  public setCreatorconteudo(value: string): void {
+    this.creatorconteudo = value
   }
 
   public toDBModel(): PostagemDB {
     return {
       id: this.id,
       creator_id: this.creatorId,
-      conteudoDaPostagem: this.conteudoDaPostagem,
+      conteudo: this.conteudo,
       likes: this.likes,
       dislikes: this.dislikes,
       created_at: this.createdAt,
@@ -151,14 +151,14 @@ export class Postagem {
   public toBusinessModel(): PostagemModel {
     return {
       id: this.id,
-      conteudoDaPostagem: this.conteudoDaPostagem,
+      conteudo: this.conteudo,
       likes: this.likes,
       dislikes: this.dislikes,
       created_at: this.createdAt,
       updated_at: this.updatedAt,
       creator: {
         id: this.creatorId,
-        conteudoDaPostagem: this.creatorconteudoDaPostagem
+        conteudo: this.creatorconteudo
       }
     }
   }

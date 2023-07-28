@@ -1,11 +1,11 @@
 -- Active: 1688481738794@@127.0.0.1@3306
 CREATE TABLE users(
-  id TEXT PRIMARY KEY UNIQUE NOT NULL,
-  apelido TEXT NOT NULL,
-  email TEXT UNIQUE NOT NULL,
-  password TEXT NOT NULL,
-  role TEXT NOT NULL,
-  created_at TEXT DEFAULT(DATETIME()) NOT NULL
+    id TEXT PRIMARY KEY NOT NULL,
+    apelido TEXT NOT NULL,
+    email TEXT NOT NULL,
+    password TEXT NOT NULL,
+    role NOT NULL,
+    created_at TEXT DEFAULT(DATETIME())
 );
 
 INSERT INTO users(id, apelido, email, password,role)
@@ -20,34 +20,37 @@ INSERT INTO users(id, apelido, email, password,role)
 
  CREATE TABLE postagens(
   id TEXT PRIMARY KEY UNIQUE NOT NULL,
-  creator_id TEXT UNIQUE NOT NULL,
-  conteudoDaPostagem TEXT NOT NULL,
-  likes INTEGER DEFAULT (0) NOT NULL,
-  dislikes INTEGER DEFAULT (0) NOT NULL,
-  created_at TEXT DEFAULT(DATETIME()) NOT NULL,
-  updated_at TEXT DEFAULT(DATETIME()) NOT NULL,
-  Foreign Key (creator_id) REFERENCES users(id)
-  ON UPDATE CASCADE
-  ON DELETE CASCADE
+    creator_id TEXT NOT NULL,
+    conteudo TEXT NOT NULL,
+    likes TEXT DEFAULT(0) NOT NULL,
+    dislikes TEXT DEFAULT(0) NOT NULL,
+    created_at TEXT DEFAULT(DATETIME()) NOT NULL,
+    updated_at TEXT DEFAULT(DATETIME()) NOT NULL,
+    FOREIGN KEY (creator_id) REFERENCES users (id)
  );
 
-
-INSERT INTO postagens(id,creator_id,conteudoDaPostagem)
+INSERT INTO postagens(id,creator_id,conteudo)
 VALUES
 ('p001', '01', 'Porque calsa agente bota e bota agente calsa?'),
 ('p002', '03', 'Somos grãos de areia em meio a esse universo tão maravilhoso!^^');
 
  SELECT * FROM postagens;
 
+
+
 CREATE TABLE likes_dislikes(
-  user_id TEXT NOT NULL,
-  postagens_id TEXT NOT NULL,
-  like INTEGER NOT NULL,
-  Foreign Key (user_id) REFERENCES users(id),
-  Foreign Key (postagens_id) REFERENCES postagens(id)
+    user_id TEXT NOT NULL,
+    post_id TEXT NOT NULL,
+    like INTEGER NOT NULL,
+    FOREIGN KEY(user_id) REFERENCES users(id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    FOREIGN KEY(post_id) REFERENCES post(id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 );
 
-INSERT INTO likes_dislikes (user_id,postagens_id,like)
+INSERT INTO likes_dislikes (user_id,post_id,like)
 VALUES
 ('01','p001',1),
 ('03','p001',1),
@@ -58,24 +61,23 @@ VALUES
 SELECT * FROM likes_dislikes;
 
 CREATE TABLE comentarios(
-  id TEXT PRIMARY KEY UNIQUE NOT NULL,
-  creator_id TEXT UNIQUE NOT NULL,
-  comentarios TEXT NOT NULL,
-  likes INTEGER DEFAULT (0) NOT NULL,
-  dislikes INTEGER DEFAULT (0) NOT NULL,
-  created_at TEXT DEFAULT(DATETIME()) NOT NULL,
-  updated_at TEXT DEFAULT(DATETIME()) NOT NULL,
-  Foreign Key (creator_id) REFERENCES postagens(id)
-  ON UPDATE CASCADE
-  ON DELETE CASCADE
+  id TEXT UNIQUE PRIMARY KEY NOT NULL,
+    id_user NOT NULL,
+    id_post NOT NULL,
+    comentarios TEXT NOT NULL,
+    likes INTEGER NOT NULL,
+    dislikes INTEGER NOT NULL,
+    created_at TEXT NOT NULL,
+    updated_at TEXT ,
+    Foreign Key (id_user) REFERENCES users(id),
+    Foreign Key (id_post) REFERENCES post(id)
 );
 
+CREATE TABLE like_dislike_comentario_post(
+    id_user TEXT NOT NULL,
+    id_comment TEXT NOT NULL,
+    like INTEGER,
 
-INSERT INTO comentarios(id,creator_id,comentarios)
-VALUES
-("c001","02","ksksk Boa"),
-("c002","04","Realmente incrivel!!");
-
-SELECT * FROM comentarios;
-
-
+    Foreign Key (id_user) REFERENCES users(id),
+    Foreign Key (id_comment) REFERENCES comment_post(id)
+);

@@ -1,7 +1,5 @@
 import express from 'express'
 import { PostagemController } from '../controller/PostagemController'
-
-import { UserBusiness } from '../business/Userbusiness'
 import { IdGenerator } from '../services/IdGenerator'
 import { TokenManager } from '../services/TokenManager'
 import { PostagemBusiness } from '../business/PostagemBusiness'
