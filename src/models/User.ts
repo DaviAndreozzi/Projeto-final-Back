@@ -5,13 +5,13 @@ export enum USER_ROLES {
 
 export interface TokenPayload {
   id: string,
-  apelido: string,
+  name: string,
   role: USER_ROLES
 }
 
 export interface UserDB {
   id: string,
-  apelido: string,
+  name: string,
   email: string,
   password: string,
   role: USER_ROLES,
@@ -20,7 +20,7 @@ export interface UserDB {
 
 export interface UserModel {
   id: string,
-  apelido: string,
+  name: string,
   email: string,
   role: USER_ROLES,
   createdAT: string
@@ -29,7 +29,7 @@ export interface UserModel {
 export class User {
   constructor(
     private id: string,
-    private apelido: string,
+    private name: string,
     private email: string,
     private password: string,
     private role: USER_ROLES,
@@ -40,8 +40,8 @@ export class User {
     return this.id
   }
 
-  public getApelido():string{
-    return this.apelido
+  public getname():string{
+    return this.name
   }
 
   public getEmail():string{
@@ -63,8 +63,8 @@ export class User {
     this.id = value
   }
 
-  public setApelido(value: string): void {
-    this.apelido = value
+  public setname(value: string): void {
+    this.name = value
   }
 
   public setEmail(value: string): void {
@@ -86,7 +86,7 @@ export class User {
   public toDBModel(): UserDB {
     return {
       id: this.id,
-      apelido: this.apelido,
+      name: this.name,
       email: this.email,
       password: this.password,
       role: this.role,
@@ -97,7 +97,7 @@ export class User {
   public toBusinessModel(): UserModel {
     return {
       id: this.id,
-      apelido: this.apelido,
+      name: this.name,
       email: this.email,
       role: this.role,
       createdAT: this.createdAT

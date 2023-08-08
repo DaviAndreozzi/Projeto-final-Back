@@ -7,7 +7,7 @@ POST http://localhost:3003/users/signup
 Content-Type: application/json
 
 {
-  "apelido":"larina",
+  "name":"larina",
   "email":"larina@gmail.com",
   "password":"casdfeisar"
 }
@@ -29,7 +29,7 @@ Content-Type: application/json
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJkMTZhMzRmLTY2MWItNGE5My05N2E0LTdiZTc0MmUzYjlkNyIsImFwZWxpZG8iOiJsYXJpbmEiLCJyb2xlIjoiTk9STUFMIiwiaWF0IjoxNjkwNTAwOTY4LCJleHAiOjE2OTExMDU3Njh9.eWgXxPWngR0yzZ3sXPlbMbVsHXWt9nTvtzRaGETJWbw
 
 {
-  "apelido":"manchetes"
+  "name":"manchetes"
 }
 
 ###

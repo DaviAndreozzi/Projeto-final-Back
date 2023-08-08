@@ -21,7 +21,7 @@ export class ComentariosDatabase extends BaseDatabase {
         `${ComentariosDatabase.TABLE_Comentarios}.dislikes`,
         `${ComentariosDatabase.TABLE_Comentarios}.created_at`,
         `${ComentariosDatabase.TABLE_Comentarios}.updated_at`,
-        `${UserDatabase.TABLE_USERS}.apelido`
+        `${UserDatabase.TABLE_USERS}.name`
       )
       .join(`${UserDatabase.TABLE_USERS}`, `${ComentariosDatabase.TABLE_Comentarios}.creator_id`, "=", `${UserDatabase.TABLE_USERS}.id`)
     return result as ComentariosDBCreatorcomentarios[]
@@ -50,7 +50,7 @@ export class ComentariosDatabase extends BaseDatabase {
         `${ComentariosDatabase.TABLE_Comentarios}.dislikes`,
         `${ComentariosDatabase.TABLE_Comentarios}.created_at`,
         `${ComentariosDatabase.TABLE_Comentarios}.updated_at`,
-        `${UserDatabase.TABLE_USERS}.apelido`
+        `${UserDatabase.TABLE_USERS}.name`
       )
       .join(`${UserDatabase.TABLE_USERS}`, `${ComentariosDatabase.TABLE_Comentarios}.creator_id`, "=", `${UserDatabase.TABLE_USERS}.id`)
       .where({ [`${ComentariosDatabase.TABLE_Comentarios}.id`]: id })

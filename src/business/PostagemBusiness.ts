@@ -20,7 +20,7 @@ export class PostagemBusiness {
   ) { }
 
   public createPostagem = async (input: CreatePostagemInputDTO): Promise<CreatePostagemOutputDTO> => {
-    const { apelido, token } = input
+    const { name, token } = input
 
     const payload = this.tokenManager.getPayload(token)
 
@@ -32,13 +32,13 @@ export class PostagemBusiness {
 
     const postagem = new Postagem(
       id,
-      apelido,
+      name,
       0,
       0,
       new Date().toISOString(),
       new Date().toISOString(),
       payload.id,
-      payload.apelido
+      payload.name
     )
     const PostagemDB = postagem.toDBModel()
     await this.postagemDatabase.insertPostagem(PostagemDB)
@@ -106,7 +106,7 @@ export class PostagemBusiness {
       PostagemDB.created_at,
       PostagemDB.updated_at,
       PostagemDB.creator_id,
-      payload.apelido
+      payload.name
     )
 
     postegem.setconteudo(conteudo)

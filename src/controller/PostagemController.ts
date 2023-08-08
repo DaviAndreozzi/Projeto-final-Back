@@ -16,7 +16,7 @@ export class PostagemController {
   public createPostagem = async (req: Request, res: Response) => {
     try {
       const input = createPostagemSchema.parse({
-        apelido: req.body.apelido,
+        name: req.body.name,
         token: req.headers.authorization
       })
 

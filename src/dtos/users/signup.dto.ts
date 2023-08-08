@@ -1,7 +1,7 @@
 import z from "zod";
 
 export interface SignupInputDTO{
-  apelido:string,
+  name:string,
   email:string,
   password:string
 }
@@ -11,7 +11,7 @@ export interface SignupOutputDTO{
 }
 
 export const SignupSchema = z.object({
-apelido:z.string().min(2),
+name:z.string().min(2),
 email:z.string().email(),
 password:z.string().min(4)
 }).transform(data => data as SignupInputDTO)

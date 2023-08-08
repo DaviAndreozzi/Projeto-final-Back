@@ -20,7 +20,7 @@ export class ComentariosBusiness {
   ) { }
 
   public createComentarios = async (input: CreateComentariosInputDTO): Promise<CreateComentariosOutputDTO> => {
-    const { apelido, token } = input
+    const { name, token } = input
 
     const payload = this.tokenManager.getPayload(token)
 
@@ -32,13 +32,13 @@ export class ComentariosBusiness {
 
     const comentarios = new Comentarios(
       id,
-      apelido,
+      name,
       0,
       0,
       new Date().toISOString(),
       new Date().toISOString(),
       payload.id,
-      payload.apelido
+      payload.name
     )
     const ComentariosDB = comentarios.toDBModel()
     await this.comentariosDatabase.insertComentarios(ComentariosDB)
@@ -106,7 +106,7 @@ export class ComentariosBusiness {
       comentarioDB.created_at,
       comentarioDB.updated_at,
       comentarioDB.creator_id,
-      payload.apelido
+      payload.name
     )
 
     comentaros.setComentarios(comentarios)
