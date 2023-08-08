@@ -16,7 +16,7 @@ export class ComentariosController {
   public createComentarios = async (req: Request, res: Response) => {
     try {
       const input = createComentariosSchema.parse({
-        apelido: req.body.apelido,
+        name: req.body.name,
         token: req.headers.authorization
       })
 

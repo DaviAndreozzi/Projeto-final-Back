@@ -1,14 +1,14 @@
 -- Active: 1688481738794@@127.0.0.1@3306
 CREATE TABLE users(
     id TEXT PRIMARY KEY NOT NULL,
-    apelido TEXT NOT NULL,
+    name TEXT NOT NULL,
     email TEXT NOT NULL,
     password TEXT NOT NULL,
     role NOT NULL,
     created_at TEXT DEFAULT(DATETIME())
 );
 
-INSERT INTO users(id, apelido, email, password,role)
+INSERT INTO users(id, name, email, password,role)
  VALUES
  ('01','Davi','Davi@gmail.com','123456789','ADMIN'),
  ('02','Larrysa','Lary@gmail.com','40028922','NORMAL'),

@@ -21,7 +21,7 @@ export class PostagemDatabase extends BaseDatabase {
         `${PostagemDatabase.TABLE_POSTAGENS}.dislikes`,
         `${PostagemDatabase.TABLE_POSTAGENS}.created_at`,
         `${PostagemDatabase.TABLE_POSTAGENS}.updated_at`,
-        `${UserDatabase.TABLE_USERS}.apelido`
+        `${UserDatabase.TABLE_USERS}.name`
       )
       .join(`${UserDatabase.TABLE_USERS}`, `${PostagemDatabase.TABLE_POSTAGENS}.creator_id`, "=", `${UserDatabase.TABLE_USERS}.id`)
     return result as PostagemDBCreatorConteudo[]
@@ -50,7 +50,7 @@ export class PostagemDatabase extends BaseDatabase {
         `${PostagemDatabase.TABLE_POSTAGENS}.dislikes`,
         `${PostagemDatabase.TABLE_POSTAGENS}.created_at`,
         `${PostagemDatabase.TABLE_POSTAGENS}.updated_at`,
-        `${UserDatabase.TABLE_USERS}.apelido`
+        `${UserDatabase.TABLE_USERS}.name`
       )
       .join(`${UserDatabase.TABLE_USERS}`, `${PostagemDatabase.TABLE_POSTAGENS}.creator_id`, "=", `${UserDatabase.TABLE_USERS}.id`)
       .where({ [`${PostagemDatabase.TABLE_POSTAGENS}.id`]: id })
