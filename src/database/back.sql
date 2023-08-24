@@ -1,4 +1,4 @@
--- Active: 1692132910978@@127.0.0.1@3306
+-- Active: 1692914724666@@127.0.0.1@3306
 CREATE TABLE users(
     id TEXT PRIMARY KEY NOT NULL,
     name TEXT NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE likes_dislikes(
     FOREIGN KEY(user_id) REFERENCES users(id)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
-    FOREIGN KEY(post_id) REFERENCES post(id)
+    FOREIGN KEY(post_id) REFERENCES postagens(id)
     ON DELETE CASCADE
     ON UPDATE CASCADE
 );
@@ -77,7 +77,6 @@ CREATE TABLE like_dislike_comentario_post(
     id_user TEXT NOT NULL,
     id_comment TEXT NOT NULL,
     like INTEGER,
-
     Foreign Key (id_user) REFERENCES users(id),
     Foreign Key (id_comment) REFERENCES comment_post(id)
 );
