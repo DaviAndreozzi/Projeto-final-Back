@@ -1,9 +1,9 @@
 # Usuarios #
 ###
-GET https://projeto-final-rkig.onrender.com/ping
+GET https://projeto-final-labbedit.onrender.com/ping
 
 ###
-POST https://projeto-final-rkig.onrender.com/users/signup
+POST https://projeto-final-labbedit.onrender.com/users/signup
 Content-Type: application/json
 
 {
@@ -13,7 +13,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:3003/users/Login
+POST https://projeto-final-labbedit.onrender.com/users/Login
 Content-Type: application/json 
 
 {
@@ -24,7 +24,7 @@ Content-Type: application/json
 # Postagens #
 
 ###
-POST http://localhost:3003/postagens
+POST https://projeto-final-labbedit.onrender.com/postagens
 Content-Type: application/json
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZkOWZkOWVjLTA5ZTEtNDFhNC04ZTVlLTgyNDRjODcyZTJjZCIsIm5hbWUiOiJsYXJpbmEiLCJyb2xlIjoiTk9STUFMIiwiaWF0IjoxNjkyOTExNDU1LCJleHAiOjE2OTM1MTYyNTV9.8tC_OV6_soDhjmYjFt0h5e-VAoLBd8Gudet0WYNQDOk
 
@@ -33,12 +33,12 @@ Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZkOWZkOWVjLTA5ZTEtN
 }
 
 ###
-GET http://localhost:3003/postagens
+GET https://projeto-final-labbedit.onrender.com/postagens
 Content-Type: application/json
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZkOWZkOWVjLTA5ZTEtNDFhNC04ZTVlLTgyNDRjODcyZTJjZCIsIm5hbWUiOiJsYXJpbmEiLCJyb2xlIjoiTk9STUFMIiwiaWF0IjoxNjkyOTExNDU1LCJleHAiOjE2OTM1MTYyNTV9.8tC_OV6_soDhjmYjFt0h5e-VAoLBd8Gudet0WYNQDOk
 
 ###
-PUT http://localhost:3003/postagens/dc9d8964-0bc2-4bcf-bcd7-8e4efa3c6ea0
+PUT https://projeto-final-labbedit.onrender.com/postagens/dc9d8964-0bc2-4bcf-bcd7-8e4efa3c6ea0
 Content-Type: application/json
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZkOWZkOWVjLTA5ZTEtNDFhNC04ZTVlLTgyNDRjODcyZTJjZCIsIm5hbWUiOiJsYXJpbmEiLCJyb2xlIjoiTk9STUFMIiwiaWF0IjoxNjkyOTExNDU1LCJleHAiOjE2OTM1MTYyNTV9.8tC_OV6_soDhjmYjFt0h5e-VAoLBd8Gudet0WYNQDOk
 
@@ -47,7 +47,7 @@ Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZkOWZkOWVjLTA5ZTEtN
 }
 
 ###
-PUT http://localhost:3003/postagens/dc9d8964-0bc2-4bcf-bcd7-8e4efa3c6ea0/like
+PUT https://projeto-final-labbedit.onrender.com/postagens/dc9d8964-0bc2-4bcf-bcd7-8e4efa3c6ea0/like
 Content-Type:application/json
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZkOWZkOWVjLTA5ZTEtNDFhNC04ZTVlLTgyNDRjODcyZTJjZCIsIm5hbWUiOiJsYXJpbmEiLCJyb2xlIjoiTk9STUFMIiwiaWF0IjoxNjkyOTExNDU1LCJleHAiOjE2OTM1MTYyNTV9.8tC_OV6_soDhjmYjFt0h5e-VAoLBd8Gudet0WYNQDOk
 
@@ -56,6 +56,6 @@ Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZkOWZkOWVjLTA5ZTEtN
 }
 
 ###
-DELETE http://localhost:3003/postagens/dc9d8964-0bc2-4bcf-bcd7-8e4efa3c6ea0
+DELETE https://projeto-final-labbedit.onrender.com/postagens/dc9d8964-0bc2-4bcf-bcd7-8e4efa3c6ea0
 Content-Type: application/json
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZkOWZkOWVjLTA5ZTEtNDFhNC04ZTVlLTgyNDRjODcyZTJjZCIsIm5hbWUiOiJsYXJpbmEiLCJyb2xlIjoiTk9STUFMIiwiaWF0IjoxNjkyOTExNDU1LCJleHAiOjE2OTM1MTYyNTV9.8tC_OV6_soDhjmYjFt0h5e-VAoLBd8Gudet0WYNQDOk
